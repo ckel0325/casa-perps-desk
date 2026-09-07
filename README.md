@@ -1,38 +1,30 @@
-# Casa Perps Desk HUD
+# Kattegat Desk
 
-Live ops dashboard for the Casa Perps Grok Bot crew (Polymarket BTC-USD + ETH-USD perps).
+Vikings-themed Grok Bot crew + live HUD for Polymarket BTC-USD and ETH-USD perps.
 
-Looks like the GPTHEIST DESK chrome. Does not invent PnL.
+Same desk as Casa Perps. New masks. Same rules: paper first, human says row.
 
-## Open
+## Roster
 
-Just open `casa-perps-hud.html` in a browser. It polls:
+| Code | Name | Job |
+|---|---|---|
+| RAGN | Ragnar | routes |
+| LAGR | Lagertha | plans |
+| BJOR | Bjorn | scouts |
+| FLOK | Floki | ships tickets |
+| ROLL | Rollo | risk |
+| SEER | The Seer | vetoes |
 
-- `GET https://api.perpetuals.polymarket.com/v1/info/tickers`
-- `GET https://api.perpetuals.polymarket.com/v1/info/book?instrument_id=6` (BTC)
-- `GET https://api.perpetuals.polymarket.com/v1/info/book?instrument_id=7` (ETH)
+## Open the HUD
 
-CORS is `*`. No backend required. Paper ledger lives in `localStorage`.
-
-Or from the Grok Bot computer:
+Open `kattegat-desk.html` in a browser. Polls public Polymarket Perps API. No keys. No `/v1/trade`.
 
 ```bash
 python3 server.py
-# then open http://127.0.0.1:8765/casa-perps-hud.html
+# http://127.0.0.1:8765/kattegat-desk.html
 ```
 
-## What is real
+Paper equity starts at $1,000. Ticket prefix `KG-YYYYMMDD-NN`.
+Group chat: Kattegat. Folder: `/workspace/kattegat/`.
 
-- BTC/ETH mark, index, basis, funding/hr, OI, spread, $1k impact
-- LIVE pill only if last poll < 15s
-- Paper equity starts at $1,000. Day stop −2%
-- Ticket pipeline DRAFT → STOCKHOLM → PALERMO → YOU → PAPER FILL
-- Six agents only: Professor, Berlin, Tokyo, Rio, Stockholm, Palermo
-
-## What is not
-
-- No live `/v1/trade` calls
-- No $52 → $11k seed
-- No 5D lattice / tail ridge / fake confidence
-
-Crew prepares. You pull the trigger.
+The fleet prepares. You say row.
